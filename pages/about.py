@@ -1,6 +1,8 @@
 from nicegui import ui
 from components.header import show_header
 from components.talent_card import show_talent_card
+from components.subscription import show_subscription
+from components.footer import show_footer
 import requests
 from utils.api import base_url
 
@@ -44,34 +46,42 @@ def show_about_page():
                         "flat dense no-caps"
                     )
 
-    with ui.element("section").style('font-family: "Josefin Sans", sans-serif').classes(
-        "w-full h-screen flex flex-col justify-center items-center text-gray-600 bg-gray-100"
-    ):
-        ui.label("Talent Hunt ? Discover Some Amazing Talent").classes(
-            "font-bold text-5xl p-4"
-        )
-        ui.label(
-            "Reach thousands of actors, models, musicians and other creatives by placing a free casting call, or hand-pick from our Talent Directory"
-        ).classes("text-lg mb-16")
-        with ui.row().classes(""):
-            ui.button(text="Create Your Free Profile", icon="description").props(
-                "flat dense no-caps"
-            ).style("border: solid 2px white").classes('bg-green text-white px-2 py-2')
-            ui.button(text="See Our Plans & Services", icon="subject").props(
-                "flat dense no-caps"
-            ).style("border: solid 2px green").classes('bg-transparent text-green px-2 py-2')
-
     with ui.element("section").classes('w-full h-screen text-gray-700 flex flex-col justify-center items-center').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('flex flex-col justify-center items-center'):
             ui.label("Recently Registered Talents").classes('text-4xl')
             ui.separator().classes('h-1 bg-green w-1/2 mb-8')
         with ui.grid(columns=4).classes('flex justify-center items-center w-full'):
+            ui.label("Contruction ongoing")
+            # response = requests.get(f"{base_url}/adverts?limit=12")
+            # json_data = response.json()
+            # for advert in json_data["data"]:
+            #     show_talent_card(advert)
 
-            response = requests.get(f"{base_url}/adverts?limit=12")
-            json_data = response.json()
-            for advert in json_data["data"]:
-                show_talent_card(advert)
-
+    with ui.element("section").style('font-family: "Josefin Sans", sans-serif').classes(
+        "w-full h-screen flex flex-col justify-center items-center text-white "
+    ):
+        with ui.element().classes('w-full h-[50%] relative flex flex-col justfiy-center items-center py-8'):
+            ui.html(
+                f"""
+                <video autoplay loop muted class="-z-10 absolute inset-0 w-full h-full object-cover">
+                    <source src="/assets/pinpage.mp4" type="video/mp4">
+                </video>
+            """
+            )
+            with ui.element():
+                ui.label("Talent Hunt ? Discover Some Amazing Talent").classes(
+                    "font-bold text-5xl p-4"
+                )
+                ui.label(
+                    "Reach thousands of actors, models, musicians and other creatives by placing a free casting call, or hand-pick from our Talent Directory"
+                ).classes("text-lg mb-16")
+            with ui.row().classes(""):
+                ui.button(text="Create Your Free Profile", icon="description").props(
+                    "flat dense no-caps"
+                ).style("border: solid 2px white").classes('bg-green text-white px-2 py-2')
+                ui.button(text="See Our Plans & Services", icon="subject").props(
+                    "flat dense no-caps"
+                ).style("border: solid 2px green").classes('bg-white text-green px-2 py-2')
 
     with ui.element("section").classes('w-full h-full flex flex-row justify-between bg-gray-100 text-gray-600').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('w-1/2 flex flex-col justify-center items-center px-8'):
@@ -81,8 +91,8 @@ def show_about_page():
 
     with ui.element('section').style('font-family: "Josefin Sans", sans-serif').classes('w-full h-screen text-gray-700 flex flex-col justify-center items-center'):
         ui.label("What Our Clients Say").classes('text-4xl')
-        ui.separator().classes('h-1 bg-green w-1/2 mb-10')
-        with ui.grid(columns=4).classes('w-full px-5 py-5'):
+        ui.separator().classes('h-1 bg-green w-[20%] mb-10')
+        with ui.grid(columns=4).classes('w-full px-10 py-10'):
                 for i in range(4):
                     with ui.card().classes('w-full flex flex-col'):
                         ui.label("Testimony")
@@ -91,3 +101,6 @@ def show_about_page():
                             with ui.column().classes(''):
                                 ui.label("Name").classes('text-black text-lg')
                                 ui.label("Role")
+
+    show_subscription()
+    show_footer()

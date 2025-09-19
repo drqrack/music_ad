@@ -5,8 +5,10 @@ from pages.view_advert import *
 from pages.edit_advert import *
 from pages.create_advert import *
 from pages.signin import *
-from pages.signup import *
-from components.talent_card import *
+from pages.artist_signup import *
+from pages.record_label_artist_signup import *
+# from components.talent_card import *
+# from components.subscription import *
 
 app.add_static_files("/assets", "assets")
 

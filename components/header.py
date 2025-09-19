@@ -21,6 +21,6 @@ def show_header():
         with ui.row():
             ui.link(text="Post Ad", target="/create_advert").classes('no-underline text-white text-lg')
             with ui.row().classes('gap-0'):
-                ui.button(text="Talent Registration", on_click=lambda: ui.navigate.to('/signup')).props('flat dense no-caps').classes('bg-white px-2 text-green')
+                ui.button(text="Registration", on_click=lambda: ui.navigate.to('/artist_signup')).props('flat dense no-caps').classes('bg-white px-2 text-green')
                 ui.button(text="Login", on_click=lambda: ui.navigate.to('/signin')).props('flat dense no-caps').classes('bg-green-700 px-4 text-white')
         
