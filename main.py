@@ -6,6 +6,7 @@ from pages.edit_advert import *
 from pages.create_advert import *
 from pages.signin import *
 from pages.signup import *
+from components.talent_card import *
 
 app.add_static_files("/assets", "assets")
 

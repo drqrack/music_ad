@@ -1,6 +1,8 @@
 from nicegui import ui
 from components.header import show_header
-
+from components.talent_card import show_talent_card
+import requests
+from utils.api import base_url
 
 @ui.page("/about")
 def show_about_page():
@@ -59,12 +61,17 @@ def show_about_page():
                 "flat dense no-caps"
             ).style("border: solid 2px green").classes('bg-transparent text-green px-2 py-2')
 
-    with ui.element("section").classes('w-full h-screen flex flex-col justify-center items-center text-gray-600').style('font-family: "Josefin Sans", sans-serif'):
+    with ui.element("section").classes('w-full h-screen text-gray-700 flex flex-col justify-center items-center').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('flex flex-col justify-center items-center'):
             ui.label("Recently Registered Talents").classes('text-4xl')
-            ui.separator().classes('h-1 bg-green w-1/2')
-        with ui.grid(columns=4).classes('flex justify-center items-center'):
-            ui.label("No user registered!").classes('text-xl p-4 text-red-500')
+            ui.separator().classes('h-1 bg-green w-1/2 mb-8')
+        with ui.grid(columns=4).classes('flex justify-center items-center w-full'):
+
+            response = requests.get(f"{base_url}/adverts?limit=12")
+            json_data = response.json()
+            for advert in json_data["data"]:
+                show_talent_card(advert)
+
 
     with ui.element("section").classes('w-full h-full flex flex-row justify-between bg-gray-100 text-gray-600').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('w-1/2 flex flex-col justify-center items-center px-8'):

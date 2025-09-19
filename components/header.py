@@ -6,9 +6,9 @@ def show_header():
     ui.add_head_html('<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400..700&family=Gwendolyn:wght@400;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lavishly+Yours&family=Stoke:wght@300;400&display=swap" rel="stylesheet">')
 
     ui.query(".nicegui-content").classes('m-0 p-0 gap-0')
-    with ui.element("header").classes('w-full bg-green text-white flex flex-row justify-between items-center px-20 py-3 fixed top-0 left-0 z-10').style('font-family: "Josefin Sans", sans-serif'):
+    with ui.element("header").classes('w-full bg-green text-white flex flex-row justify-between items-center px-20 py-2 fixed top-0 left-0 z-10').style('font-family: "Josefin Sans", sans-serif'):
         with ui.element("div"):
-            ui.label("kolkit").style('font-family: "Gwendolyn", cursive; font-weight: 700; font-style: normai').classes('text-5xl font-bold')
+            ui.label("kolkit").style('font-family: "Gwendolyn", cursive; font-weight: 700; font-style: normai').classes('text-4xl font-bold')
 
         with ui.row().classes('text-sm space-x-4'):
             ui.link(text="Home", target="/").classes('no-underline text-white cursor-pointer')
