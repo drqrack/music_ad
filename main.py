@@ -3,13 +3,14 @@ from pages.home import *
 from pages.about import *
 from pages.view_advert import *
 from pages.edit_advert import *
-from pages.create_advert import *
+from pages.artist_create_advert import *
+from pages.record_label_create_advert import *
 from pages.signin import *
 from pages.artist_signup import *
-from pages.record_label_artist_signup import *
-# from components.talent_card import *
-# from components.subscription import *
+from pages.record_label_signup import *
+from pages.contact import *
+from pages.artist_profile import *
 
 app.add_static_files("/assets", "assets")
 
-ui.run()
+ui.run(title="Kolkit", favicon="")

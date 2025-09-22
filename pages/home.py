@@ -5,6 +5,8 @@ from nicegui import ui
 def show_homepage():
     ui.query(".nicegui-content").classes("m-0 p-0 gap-0")
     with ui.row().classes("h-screen w-full relative"):
+        ui.add_head_html('<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400..700&family=Gwendolyn:wght@400;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lavishly+Yours&family=Stoke:wght@300;400&display=swap" rel="stylesheet">')
+
         # Video background container
         ui.html(
             f"""
@@ -19,8 +21,10 @@ def show_homepage():
             "flex flex-col items-center justify-center w-full h-full text-white"
         ).style('font-family: "Josefin Sans", sans-serif'):
             ui.label("kolkit").classes("text-9xl font-bold drop-shadow-md").style(
-                'font-family: "Gwendolyn", cursive; font-weight: 700; font-style: normai'
+                'font-family: "Gwendolyn", cursive; font-weight: 400; font-style: normai'
             )
+            ui.label("Join the Kolk!t Community").classes('text-6xl font-bold')
+            ui.label("Connect with artists, discover new music, and grow your network").classes('text-2xl')
             ui.button(
                 text="Get Started", on_click=lambda: ui.navigate.to("/about")
             ).classes(

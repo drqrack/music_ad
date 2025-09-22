@@ -23,8 +23,8 @@ def _post_event(data, files):
     print(json_data)
         
 
-@ui.page('/create_advert')
-def show_create_advert():
+@ui.page('/artist_create_advert')
+def show_artist_create_advert():
     ui.add_head_html('<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400..700&family=Gwendolyn:wght@400;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lavishly+Yours&family=Stoke:wght@300;400&display=swap" rel="stylesheet">')
 
     ui.query(".nicegui-content").classes('m-0 p-0 gap-0')
@@ -33,10 +33,18 @@ def show_create_advert():
             ui.label("kolkit").style('font-family: "Gwendolyn", cursive; font-weight: 700; font-style: normal').classes('text-xl font-bold text-gray-800')
             ui.label("Create an Ad").classes('text-xl font-bold text-green-900')
             ui.separator().classes('w-[10%] h-0.5 bg-green-800')
-            advert_title = ui.input(label="Title", placeholder="Enter the title").classes('w-full bg-white px-2')
-            advert_description = ui.textarea(label="Description", placeholder="Enter the details").classes('w-full bg-white px-2')
-            advert_price = ui.number(label="Price", placeholder="Enter the price").classes('w-full bg-white px-w')
-            advert_category = ui.input(label="Category", placeholder="Enter the category").classes('w-full bg-white px-2')
+            with ui.row().classes("gap-0 mb-2"):
+                ui.button(text="Artist", on_click=lambda: ui.navigate.to('/artist_create_advert'), icon="interpreter_mode").props(
+                    "flat dense no-caps"
+                ).classes('bg-green text-white px-8 py-2')
+                ui.button(text="Record Label", on_click=lambda: ui.navigate.to('/record_label_create_advert'), icon="business_center").props(
+                    "flat dense no-caps"
+                ).classes('bg-white text-green px-2 py-2')
+
+            advert_title = ui.input(label="Title", placeholder="Enter the title").classes('w-full bg-white px-2').props('borderless')
+            advert_description = ui.textarea(label="Description", placeholder="Enter the details").classes('w-full bg-white px-2').props('borderless')
+            advert_price = ui.number(label="Price", placeholder="Enter the price").classes('w-full bg-white px-w').props('borderless')
+            advert_category = ui.input(label="Category", placeholder="Enter the category").classes('w-full bg-white').props('borderless')
             ui.upload(auto_upload=True, on_upload=_handle_image_upload).classes('w-full mb-4').props('color=green')
             ui.button(text="Post", on_click=lambda: _post_event(
                 data={

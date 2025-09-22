@@ -3,6 +3,7 @@ from components.header import show_header
 from components.talent_card import show_talent_card
 from components.subscription import show_subscription
 from components.footer import show_footer
+from components.advert_card import show_advert_card
 import requests
 from utils.api import base_url
 
@@ -23,10 +24,10 @@ def show_about_page():
                     ui.label("Hunt").style("font-weight: 700;").classes(
                         "text-7xl text-green-500"
                     )
-                ui.label("Here You Can Prove Your Talent").classes("text-2xl")
+                ui.label("Here You Can Prove Your Talent").classes("text-3xl")
                 ui.label(
                     "Etiam nec imperdiet nisi. Nullam in turpis placerat, elementum felis vitae, varius erat. Sed eleifend, metus ac convallis tincidunt, lorem turpis pharetra nibh, id blandit mi lacus ."
-                ).style("line-height: 2em;")
+                ).style("line-height: 2em;").classes('text-lg')
                 with ui.row().classes("flex flex-row justify-center items-center"):
                     ui.button(
                         text="Apply Now", on_click=lambda: ui.navigate.to("/about")
@@ -46,16 +47,13 @@ def show_about_page():
                         "flat dense no-caps"
                     )
 
-    with ui.element("section").classes('w-full h-screen text-gray-700 flex flex-col justify-center items-center').style('font-family: "Josefin Sans", sans-serif'):
+    with ui.element('section').classes('w-full h-full flex flex-col justify-center items-center py-10 px-10 bg-gray-100 mb-10').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('flex flex-col justify-center items-center'):
-            ui.label("Recently Registered Talents").classes('text-4xl')
-            ui.separator().classes('h-1 bg-green w-1/2 mb-8')
-        with ui.grid(columns=4).classes('flex justify-center items-center w-full'):
-            ui.label("Contruction ongoing")
-            # response = requests.get(f"{base_url}/adverts?limit=12")
-            # json_data = response.json()
-            # for advert in json_data["data"]:
-            #     show_talent_card(advert)
+            ui.label("Recent Job Posts").classes('text-4xl')
+            ui.separator().classes('h-1 bg-green w-1/5 mb-8')
+            with ui.grid(columns=3).classes('gap-10'):
+                for i in range(6):
+                    show_advert_card()
 
     with ui.element("section").style('font-family: "Josefin Sans", sans-serif').classes(
         "w-full h-screen flex flex-col justify-center items-center text-white "
@@ -83,6 +81,58 @@ def show_about_page():
                     "flat dense no-caps"
                 ).style("border: solid 2px green").classes('bg-white text-green px-2 py-2')
 
+    with ui.element("section").classes('w-full h-full text-gray-700 flex flex-col justify-center items-center px-10 py-10').style('font-family: "Josefin Sans", sans-serif'):
+        with ui.column().classes('flex flex-col justify-center items-center'):
+            ui.label("Recently Registered Talents").classes('text-4xl')
+            ui.separator().classes('h-1 bg-green w-1/3 mb-8')
+            with ui.grid(columns=4).classes('flex justify-center items-center w-full gap-10'):
+                # ui.label("Contruction ongoing")
+                for i in range(8):
+                    show_talent_card()
+                # response = requests.get(f"{base_url}/adverts?limit=12")
+                # json_data = response.json()
+                # for advert in json_data["data"]:
+                #     show_talent_card(advert)
+
+    
+
+    with ui.element('section').classes('w-full h-screen flex flex-col justify-center items-center ').style('font-family: "Josefin Sans", sans-serif'):
+        ui.label("Popular Genres").classes('text-4xl')
+        ui.label("Genres based on its form, style, and cultural influence").classes('text-lg')
+        with ui.grid(columns=4).classes('p-8 text-center gap-5'):
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Afrobeat').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Highlife').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Jùjú').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Amapiano').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Bongo Flavor').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Gqom').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Azonto').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('HipLife').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Gospel').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Drill').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('AfroPop').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Dancehall').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Reggae').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('Jazz').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('HipLife').classes('text-green no-underline text-lg')
+            with ui.card().classes('px-14 py-5 bg-gray-100 cursor-pointer hover:bg-green-200'):
+                ui.link('HipLife').classes('text-green no-underline text-lg')
+
     with ui.element("section").classes('w-full h-full flex flex-row justify-between bg-gray-100 text-gray-600').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('w-1/2 flex flex-col justify-center items-center px-8'):
             ui.label('Top 6 reasons why you should choose us').classes('text-4xl font-bold')
@@ -96,8 +146,8 @@ def show_about_page():
                 for i in range(4):
                     with ui.card().classes('w-full flex flex-col'):
                         ui.label("Testimony")
-                        with ui.row().classes('flex flex-row justify-between items-center'):
-                            ui.image("https://kayapati.com/demos/talenthunt/wp-content/uploads/2020/09/42b51358-5681-4b80-b002-a88533ed27ca.jpg").classes('object-cover')
+                        with ui.row().classes('flex flex-row justify-between items-center w-1/2'):
+                            ui.image("/assets/client.jpeg").classes('object-cover w-full')
                             with ui.column().classes(''):
                                 ui.label("Name").classes('text-black text-lg')
                                 ui.label("Role")

@@ -12,8 +12,8 @@ def show_signin_page():
             ui.label("Sign In").classes('text-xl font-bold text-green-900')
             ui.separator().classes('w-[10%] h-0.5 bg-green-800 mb-4')
             
-            ui.input(placeholder="Email").props('type=email').classes('w-[80%] bg-white px-4')
-            ui.input(placeholder="Password").props('type=password').classes('w-[80%] bg-white px-4')
+            ui.input(placeholder="Email").props('type=email borderless').classes('w-[80%] bg-white px-4')
+            ui.input(placeholder="Password").props('type=password borderless').classes('w-[80%] bg-white px-4')
             
             with ui.row().classes('flex flex-row justify-between items-center w-[80%]'):
                 ui.checkbox(text="Remember me").classes('text-gray-600 text-sm w-1/2')

@@ -17,11 +17,11 @@ def show_artist_signup_page():
                 ui.button(text="Record Label", on_click=lambda: ui.navigate.to('/record_label_signup'), icon="business_center").props(
                     "flat dense no-caps"
                 ).classes('bg-white text-green px-2 py-2')
-            ui.input(placeholder="Email").props('type=email').classes('w-[80%] bg-white px-4')
-            ui.input(placeholder="Password").props('type=password').classes('w-[80%] bg-white px-4')
-            ui.input(placeholder="Confirm Password").props('type=password').classes('w-[80%] bg-white px-4')
+            ui.input(placeholder="Email").props('type=email borderless').classes('w-[80%] bg-white px-4')
+            ui.input(placeholder="Password").props('type=password borderless').classes('w-[80%] bg-white px-4')
+            ui.input(placeholder="Confirm Password").props('type=password borderless').classes('w-[80%] bg-white px-4')
             ui.checkbox(text="Accept our terms and conditions and privacy policy").classes('text-gray-600 text-sm')
-            ui.button(text="Register").classes('w-full bg-green text-white').props('flat dense no-caps')
+            ui.button(text="Register").classes('w-[80%] bg-green text-white py-2').props('flat dense no-caps')
             with ui.row().classes('text-gray-600 gap-0 space-x-2'):
                 ui.label("Already have an account?")
                 ui.link("Login", "/signin").classes('text-green no-underline')
