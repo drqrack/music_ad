@@ -81,7 +81,7 @@ def show_about_page():
                     "flat dense no-caps"
                 ).style("border: solid 2px green").classes('bg-white text-green px-2 py-2')
 
-    with ui.element("section").classes('w-full h-screen text-gray-700 flex flex-col justify-center items-center px-10 py-10').style('font-family: "Josefin Sans", sans-serif'):
+    with ui.element("section").classes('w-full h-full text-gray-700 flex flex-col justify-center items-center px-10 py-10').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('flex flex-col justify-center items-center'):
             ui.label("Recently Registered Talents").classes('text-4xl')
             ui.separator().classes('h-1 bg-green w-1/3 mb-8')
