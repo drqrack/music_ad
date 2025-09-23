@@ -1,7 +1,7 @@
 from nicegui import ui
 
 def show_advert_card():
-    with ui.card().on(type="click", handler=lambda: ui.navigate.to()).classes("w-80 p-6 rounded-2xl shadow-md cursor-pointer"):
+    with ui.card().on(type="click", handler=lambda: ui.navigate.to("/view_advert")).classes("w-80 p-6 rounded-2xl shadow-md cursor-pointer"):
         with ui.row().classes("items-center space-x-4"):
             ui.image("/assets/mixer.jpeg").classes("w-14 h-14 rounded-lg")
             with ui.column().classes("items-start"):

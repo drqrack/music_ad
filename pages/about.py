@@ -11,7 +11,7 @@ from utils.api import base_url
 def show_about_page():
     show_header()
     with ui.element("main").classes(
-        'w-full h-screen bg-[url("/assets/asset10.jpeg")] bg-cover bg-center flex flex-col justify-center items-center'
+        'w-full h-screen bg-[url("/assets/bg-smoke.png")] bg-cover bg-center flex flex-col justify-center items-center'
     ):
         with ui.element("div").classes(
             "bg-black/40 w-full h-full flex flex-col justify-center items-center"
@@ -81,18 +81,15 @@ def show_about_page():
                     "flat dense no-caps"
                 ).style("border: solid 2px green").classes('bg-white text-green px-2 py-2')
 
-    with ui.element("section").classes('w-full h-full text-gray-700 flex flex-col justify-center items-center px-10 py-10').style('font-family: "Josefin Sans", sans-serif'):
+    with ui.element("section").classes('w-full h-screen text-gray-700 flex flex-col justify-center items-center px-10 py-10').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('flex flex-col justify-center items-center'):
             ui.label("Recently Registered Talents").classes('text-4xl')
             ui.separator().classes('h-1 bg-green w-1/3 mb-8')
             with ui.grid(columns=4).classes('flex justify-center items-center w-full gap-10'):
-                # ui.label("Contruction ongoing")
-                for i in range(8):
-                    show_talent_card()
-                # response = requests.get(f"{base_url}/adverts?limit=12")
-                # json_data = response.json()
-                # for advert in json_data["data"]:
-                #     show_talent_card(advert)
+                response = requests.get(f"{base_url}/adverts?limit=4")
+                json_data = response.json()
+                for advert in json_data["data"]:
+                    show_talent_card(advert)
 
     
 

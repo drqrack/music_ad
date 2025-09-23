@@ -11,16 +11,14 @@ def _handle_image_upload(advert):
 
 def _post_event(data, files):
     response = requests.post(url=f"{base_url}/adverts", data=data, files=files)
+    print(response.status_code, response.content)
     if response.status_code == 200:
         ui.notify(
             message= "Events added successfully",
             type= "positive")
-        return ui.navigate.to("/")
+        return ui.navigate.to("/about")
     elif response.status_code == 422:
         return ui.notify(message="Please ensure all inputs are filled!", type="negative")
-    print(response.status_code)
-    json_data = response.json()
-    print(json_data)
         
 
 @ui.page('/artist_create_advert')
