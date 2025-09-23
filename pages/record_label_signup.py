@@ -18,8 +18,8 @@ def show_record_label_signup_page():
                     "flat dense no-caps"
                 ).classes('bg-green text-white px-2 py-2')
             ui.input(placeholder="Email").props('type=email borderless').classes('w-[80%] bg-white px-4')
-            ui.input(placeholder="Password").props('type=password borderless').classes('w-[80%] bg-white px-4')
-            ui.input(placeholder="Confirm Password").props('type=password borderless').classes('w-[80%] bg-white px-4')
+            ui.input(placeholder="Password", password=True, password_toggle_button=True).props('type=password borderless').classes('w-[80%] bg-white px-4')
+            ui.input(placeholder="Confirm Password", password=True, password_toggle_button=True).props('type=password borderless').classes('w-[80%] bg-white px-4')
             ui.checkbox(text="Accept our terms and conditions and privacy policy").classes('text-gray-600 text-sm')
             ui.button(text="Register").classes('w-[80%] bg-green text-white py-2').props('flat dense no-caps')
             with ui.row().classes('text-gray-600 gap-0 space-x-2'):
