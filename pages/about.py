@@ -4,7 +4,7 @@ from components.talent_card import show_talent_card
 from components.subscription import show_subscription
 from components.footer import show_footer
 from components.advert_card import show_advert_card
-import requests
+import requests 
 from utils.api import base_url
 
 @ui.page("/about")
@@ -81,7 +81,7 @@ def show_about_page():
                     "flat dense no-caps"
                 ).style("border: solid 2px green").classes('bg-white text-green px-2 py-2')
 
-    with ui.element("section").classes('w-full h-screen text-gray-700 flex flex-col justify-center items-center px-10 py-10').style('font-family: "Josefin Sans", sans-serif'):
+    with ui.element("section").classes('w-full h-full text-gray-700 flex flex-col justify-center items-center px-10 py-10').style('font-family: "Josefin Sans", sans-serif'):
         with ui.column().classes('flex flex-col justify-center items-center'):
             ui.label("Recently Registered Talents").classes('text-4xl')
             ui.separator().classes('h-1 bg-green w-1/3 mb-8')
