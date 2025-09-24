@@ -4,7 +4,7 @@ from components.talent_card import show_talent_card
 from components.subscription import show_subscription
 from components.footer import show_footer
 from components.advert_card import show_advert_card
-import requests
+import requests 
 from utils.api import base_url
 
 @ui.page("/about")

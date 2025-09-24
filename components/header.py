@@ -15,7 +15,7 @@ def show_header():
         with ui.row().classes('text-sm space-x-4'):
             ui.link(text="Home", target="/").classes('no-underline text-white cursor-pointer')
             ui.link(text="Talent Directory", target="/view_advert").classes('no-underline text-white')
-            ui.link(text="About Us", target="/").classes('no-underline text-white')
+            ui.link(text="About Us", target="/about").classes('no-underline text-white')
             ui.link(text="Blog", target="/").classes('no-underline text-white')
             ui.link(text="Contact Us", target="/contact").classes('no-underline text-white')
             ui.link(text="Record Label", target="/vendor/dashboard").classes('no-underline text-white')
