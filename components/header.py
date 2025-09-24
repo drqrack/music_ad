@@ -18,6 +18,7 @@ def show_header():
             ui.link(text="About Us", target="/").classes('no-underline text-white')
             ui.link(text="Blog", target="/").classes('no-underline text-white')
             ui.link(text="Contact Us", target="/contact").classes('no-underline text-white')
+            ui.link(text="Record Label", target="/vendor/dashboard").classes('no-underline text-white')
             
 
         with ui.row().classes('gap-4 flex flex-row items-center'):
