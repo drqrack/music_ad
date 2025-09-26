@@ -18,7 +18,8 @@ def show_homepage():
 
         # Content to be placed on top of the video
         with ui.column().classes(
-            "flex flex-col items-center justify-center w-full h-full text-white"
+            "flex flex-col items-center justify-center w-full h-screen" \
+            " text-white bg-black/50"
         ).style('font-family: "Josefin Sans", sans-serif'):
             ui.label("kolkit").classes("text-9xl font-bold drop-shadow-md").style(
                 'font-family: "Gwendolyn", cursive; font-weight: 400; font-style: normai'

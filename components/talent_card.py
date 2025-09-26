@@ -5,6 +5,11 @@ def show_talent_card(advert):
     with ui.card().on(
         type="click", handler=lambda: ui.navigate.to(f"/advert?id={advert["id"]}")
     ).classes("cursor-pointer w-[20%] h-[45%]"):
+        # ui.label("Title").classes("text-green-800 font-bold")
+        # ui.image("/assets/pos.jpg")
+        # ui.label("Description")
+        # ui.label("Price")
+        # ui.label("Category")
         ui.label(text=advert["title"]).classes("text-green-800 font-bold")
         ui.image(source=advert["flyer_url"])
         ui.label(text=advert["description"])
