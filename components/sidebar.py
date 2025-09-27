@@ -1,16 +1,20 @@
 from nicegui import ui, app
 
+def _sign_out():
+    app.storage.user.clear()
+    ui.navigate.to("/")
+
 
 def show_sidebar():
     ui.add_head_html('<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400..700&family=Gwendolyn:wght@400;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lavishly+Yours&family=Stoke:wght@300;400&display=swap" rel="stylesheet">')
 
     ui.query('.nicegui-content').classes('m-0 p-0 gap-0')
     with ui.column().classes(
-        "bg-gray-100 p-4 w-full shadow-lg h-full justify-between items-center"
+        "bg-gray-100 p-4 w-[20%] shadow-lg h-full justify-between items-center fixed left-0 z-50"
     ).style('font-family: "Stoke", serif; font-style: normal;'):
         # Top section with branding and vendor info
         with ui.column().classes("w-full items-center mb-6"):
-            ui.link("Kolkit", "/vendor/dashboard").classes(
+            ui.link("Kolkit", "/about").classes(
                 "text-2xl font-extrabold text-green no-underline"
             ).style('font-family: "Gwendolyn", cursive; font-weight: 700; font-style: normal')
             ui.label("Record Label").classes("text-3xl font-bold text-gray-800")
@@ -33,7 +37,7 @@ def show_sidebar():
                 "w-full items-center cursor-pointer hover:bg-green transition-colors p-2 rounded-lg"
             ):
                 ui.icon("event").classes("text-green")
-                ui.link("Adverts", "/vendor/adverts").classes(
+                ui.link("Adverts").classes(
                     "text-gray-700 font-semibold no-underline text-lg"
                 )
 
@@ -42,7 +46,7 @@ def show_sidebar():
                 "w-full items-center cursor-pointer hover:bg-green transition-colors p-2 rounded-lg"
             ):
                 ui.icon("analytics").classes("text-green")
-                ui.link("Analytics", "/vendor/dashboard").classes(
+                ui.link("Post Advert", "/vendor/record_label_create_advert").classes(
                     "text-gray-700 font-semibold no-underline text-lg"
                 )
 
@@ -58,14 +62,17 @@ def show_sidebar():
         # Logout button at the bottom
         with ui.column().classes("w-full items-center mt-auto"):
             ui.separator().classes("w-full bg-green h-0.5 my-6")
-            with ui.row().classes(
-                "w-full items-center cursor-pointer p-2 rounded-lg hover:bg-green-100 transition-colors"
-            ):
-                ui.icon("logout").classes("text-green-600")
-                ui.button(
-                    "Logout", on_click=lambda: app.storage.user.clear(), color="green"
-                ).classes(
-                    "bg-transparent text-green-600 font-semibold shadow-none text-lg"
-                ).props(
-                    "flat no-caps"
-                )
+            if app.storage.user.get("access_token"):
+                    ui.button("Logout", icon="logout", on_click=_sign_out).props('flat dense no-caps').classes('bg-gray-800 px-4 py-2')
+            # else:
+            #     with ui.row().classes(
+            #         "w-full items-center cursor-pointer p-2 rounded-lg hover:bg-green-100 transition-colors"
+            #     ):
+            #         ui.icon("logout").classes("text-green-600")
+            #         ui.button(
+            #             "Logout", on_click=lambda: app.storage.user.clear(), color="green"
+            #         ).classes(
+            #             "bg-transparent text-green-600 font-semibold shadow-none text-lg"
+            #         ).props(
+            #             "flat no-caps"
+            #         )
